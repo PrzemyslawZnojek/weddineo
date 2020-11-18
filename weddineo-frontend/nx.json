@@ -1,0 +1,43 @@
+{
+  "npmScope": "weddineo-frontend",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "YmVhZmYyZjMtYzcwYS00MzY0LTliNDAtNWIxNWZhOWFhOTI5fHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "weddineo-frontend": {
+      "tags": []
+    },
+    "weddineo-frontend-e2e": {
+      "tags": [],
+      "implicitDependencies": ["weddineo-frontend"]
+    },
+    "version": {
+      "tags": []
+    },
+    "rest-api": {
+      "tags": []
+    }
+  }
+}
