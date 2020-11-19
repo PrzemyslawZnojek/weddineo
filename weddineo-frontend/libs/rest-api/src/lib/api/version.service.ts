@@ -11,9 +11,6 @@ export class VersionService {
   constructor(private http: HttpClient) {}
 
   public getVersion(): Observable<Version> {
-    return of({
-      version: '123',
-      revision: '321',
-    });
+    return this.http.get<Version>(this.apiBaseUrl + 'ver')
   }
 }
