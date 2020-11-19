@@ -1,7 +1,7 @@
 package com.weddineo.firebase.exception;
 
-public class FirebaseRuntimeException extends RuntimeException {
-    public FirebaseRuntimeException(String message) {
+public class WeddineoFirebaseRuntimeException extends RuntimeException {
+    public WeddineoFirebaseRuntimeException(String message) {
         super(message);
     }
 }

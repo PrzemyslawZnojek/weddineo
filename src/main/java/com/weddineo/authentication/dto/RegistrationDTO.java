@@ -1,9 +1,9 @@
-package com.weddineo.authentication.model;
+package com.weddineo.authentication.dto;
 
 import lombok.Data;
 
 @Data
-public class RegistrationInfo {
+public class RegistrationDTO {
     private String username;
     private String password;
     private String email;
