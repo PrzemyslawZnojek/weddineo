@@ -1,4 +1,4 @@
-package com.worm.code.weddineo.model;
+package com.weddineo.version.model;
 
 
 import lombok.Builder;
