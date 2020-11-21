@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
@@ -24,9 +25,11 @@ import { MatSelectModule } from '@angular/material/select';
   ],
   declarations: [
     TextInputComponent,
+    DatePickerComponent
   ],
   exports: [
     TextInputComponent,
+    DatePickerComponent
   ],
 })
 export class UiKitModule {}
