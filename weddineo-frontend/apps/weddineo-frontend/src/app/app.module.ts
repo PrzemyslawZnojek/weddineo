@@ -1,16 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { VersionModule } from '@weddineo-frontend/version';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { environment } from '../environments/environment';
+import { AppComponent } from './app.component';
 import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
 import { TokenInterceptor } from './shared/interceptor/token.interceptor';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +30,14 @@ import { TokenInterceptor } from './shared/interceptor/token.interceptor';
         },
       }
     ),
+    TranslateModule.forRoot({
+      defaultLanguage: 'pl_PL',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     VersionModule,
