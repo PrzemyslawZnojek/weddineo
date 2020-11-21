@@ -11,8 +11,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
 import { TokenInterceptor } from './shared/interceptor/token.interceptor';
+<<<<<<< HEAD
 import { CommonModule } from '@angular/common';
 import { UiKitModule } from '@weddineo-frontend/ui-kit';
+=======
+>>>>>>> 124e6a5... add error and auth-token interceptors
 
 @NgModule({
   declarations: [AppComponent],
