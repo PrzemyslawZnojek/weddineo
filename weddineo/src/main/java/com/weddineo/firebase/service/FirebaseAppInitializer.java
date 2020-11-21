@@ -1,6 +1,5 @@
 package com.weddineo.firebase.service;
 
-import com.google.auth.Credentials;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -11,10 +10,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 
 @Component
 @Slf4j
@@ -27,7 +24,7 @@ public class FirebaseAppInitializer {
     private String firebaseDatabaseURL;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         log.info("Initializing firebase service...");
         try {
             if (firebaseAppIsEmpty()) {
@@ -51,11 +48,10 @@ public class FirebaseAppInitializer {
     }
 
     private FirebaseOptions createFirebaseOptions() throws IOException {
-        FirebaseOptions options = FirebaseOptions.builder()
+        return FirebaseOptions.builder()
                 .setCredentials(getGoogleCredentials())
                 .setDatabaseUrl(firebaseDatabaseURL)
                 .build();
-        return options;
     }
 
     private GoogleCredentials getGoogleCredentials() throws IOException {
