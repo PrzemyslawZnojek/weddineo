@@ -7,8 +7,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { VersionModule } from '@weddineo-frontend/version';
-import { UiKitModule } from '@weddineo-frontend/ui-kit';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
+import { TokenInterceptor } from './shared/interceptor/token.interceptor';
 import { CommonModule } from '@angular/common';
+import { UiKitModule } from '@weddineo-frontend/ui-kit';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +34,10 @@ import { CommonModule } from '@angular/common';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     VersionModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
