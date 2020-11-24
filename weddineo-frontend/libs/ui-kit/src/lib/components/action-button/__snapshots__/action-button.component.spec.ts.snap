@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionButtonComponent should match snapshot 1`] = `
+<weddi-action-button
+  buttonStyle={[Function String]}
+  color={[Function String]}
+  disabled="false"
+  onClick={[Function EventEmitter_]}
+  width={[Function String]}
+>
+  <button
+    mat-raised-button=""
+    style="box-sizing: border-box; flex: 1 1 100%; max-width: 100%;"
+  >
+     
+  
+  </button>
+</weddi-action-button>
+`;
