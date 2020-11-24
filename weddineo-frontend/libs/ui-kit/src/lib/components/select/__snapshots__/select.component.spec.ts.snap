@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DatePickerComponent should match snapshot 1`] = `
-<weddi-date-picker
+exports[`SelectComponent should match snapshot 1`] = `
+<weddi-select
   fc={[Function FormControl]}
   width={[Function String]}
 >
@@ -12,14 +12,11 @@ exports[`DatePickerComponent should match snapshot 1`] = `
     <mat-label>
       
     </mat-label>
-    <input
+    <mat-select
       class="ng-untouched ng-pristine ng-valid"
-      matinput=""
-    />
-    <mat-datepicker-toggle
-      matsuffix=""
-    />
-    <mat-datepicker />
+    >
+      
+    </mat-select>
   </mat-form-field>
-</weddi-date-picker>
+</weddi-select>
 `;

@@ -1,0 +1,6 @@
+<mat-form-field appearance="outline" [fxFlex]="width">
+  <mat-label>{{label}}</mat-label>
+  <mat-select [formControl]="fc">
+    <mat-option *ngFor="let option of options" [value]="option.value">{{option.text}}</mat-option>
+  </mat-select>
+</mat-form-field>
