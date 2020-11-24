@@ -1,13 +1,11 @@
-package com.worm.code.weddineo.controller;
+package com.weddineo.version.controller;
 
-import com.worm.code.weddineo.model.ApplicationVersion;
-import lombok.extern.java.Log;
+import com.weddineo.version.model.ApplicationVersion;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Log
 @RestController
 @RequestMapping("/ver")
 public class VersionController {

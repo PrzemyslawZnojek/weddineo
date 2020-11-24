@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Firebase ###
+**/weddineo-an-firebase-adminsdk.json

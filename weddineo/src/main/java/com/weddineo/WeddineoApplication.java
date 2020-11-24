@@ -1,4 +1,4 @@
-package com.worm.code.weddineo;
+package com.weddineo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
