@@ -18,15 +18,15 @@
     <properties>
         <java.version>11</java.version>
         <lombok.version>1.18.16</lombok.version>
+		<firebase.version>7.0.1</firebase.version>
+        <springfox.version>3.0.0</springfox.version>
+		<apache-commons.version>3.11</apache-commons.version>
+		<maven-lombok.version>1.18.10.0</maven-lombok.version>
         <maven.resource.version>3.2.0</maven.resource.version>
+		<git-commit-id.version>4.0.2</git-commit-id.version>
     </properties>
 
 	<dependencies>
-		<!-- TODO: Nice to have dependencies:
-		- Swagger2(swagger + spring fox)
-		- org.apache.commons
-		- consider using gson instead of jackson
-		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -35,6 +35,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>${springfox.version}</version>
 		</dependency>
 
 		<dependency>
@@ -53,7 +59,13 @@
 		<dependency>
 			<groupId>com.google.firebase</groupId>
 			<artifactId>firebase-admin</artifactId>
-			<version>7.0.1</version>
+			<version>${firebase.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${apache-commons.version}</version>
 		</dependency>
 
 		<dependency>
@@ -77,6 +89,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -86,8 +99,51 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+			<plugin>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok-maven-plugin</artifactId>
+				<version>${maven-lombok.version}</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>delombok</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>${git-commit-id.version}</version>
+				<executions>
+					<execution>
+						<id>revision</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>validate-revision</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>validateRevision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<failOnNoGitDirectory>false</failOnNoGitDirectory>
+					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+					<includeOnlyProperties>
+						<includeOnlyProperty>git.commit.id</includeOnlyProperty>
+					</includeOnlyProperties>
+				</configuration>
+			</plugin>
+
         </plugins>
-		<!-- TODO: Add lombok plugin and lombok goal in packaga phase - now app is not buildable to package-->
     </build>
 
 </project>
