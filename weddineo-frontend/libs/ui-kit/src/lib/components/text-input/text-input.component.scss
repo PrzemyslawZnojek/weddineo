@@ -1,0 +1,33 @@
+//todo - read variables
+
+:host {
+  ::ng-deep {
+    .invalid {
+      input,
+      input:focus {
+        background-color: white;
+        border: 1px solid red !important;
+      }
+    }
+  }
+
+  .text-input {
+    input {
+      border: 1px solid lightblue;
+    }
+    height: 34px;
+    &[readonly] {
+      color: rgba(0, 0, 0, 0.25);
+      cursor: not-allowed;
+      opacity: 1;
+    }
+  }
+
+  .hint-box {
+    &:not(:empty) {
+      margin-left: 20px;
+      padding: 0 20px;
+      color: rgba(gray, 0.87);
+    }
+  }
+}

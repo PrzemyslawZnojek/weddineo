@@ -7,10 +7,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { VersionModule } from '@weddineo-frontend/version';
+import { UiKitModule } from '@weddineo-frontend/ui-kit';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    CommonModule,
+    UiKitModule,
     BrowserModule,
     StoreModule.forRoot(
       {},
@@ -24,7 +28,7 @@ import { VersionModule } from '@weddineo-frontend/version';
     ),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    VersionModule
+    VersionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

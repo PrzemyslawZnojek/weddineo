@@ -38,6 +38,9 @@
     },
     "rest-api": {
       "tags": []
+    },
+    "ui-kit": {
+      "tags": []
     }
   }
 }
