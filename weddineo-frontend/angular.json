@@ -10,7 +10,7 @@
       },
       "root": "apps/weddineo-frontend",
       "sourceRoot": "apps/weddineo-frontend/src",
-      "prefix": "weddi",
+      "prefix": "weddineo-frontend",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -130,7 +130,7 @@
       "projectType": "library",
       "root": "libs/version",
       "sourceRoot": "libs/version/src",
-      "prefix": "weddi",
+      "prefix": "weddineo-frontend",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -160,7 +160,7 @@
       "projectType": "library",
       "root": "libs/rest-api",
       "sourceRoot": "libs/rest-api/src",
-      "prefix": "weddi",
+      "prefix": "weddineo-frontend",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -190,7 +190,7 @@
       "projectType": "library",
       "root": "libs/ui-kit",
       "sourceRoot": "libs/ui-kit/src",
-      "prefix": "weddi",
+      "prefix": "weddineo-frontend",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -206,6 +206,66 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui-kit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "auth": {
+      "projectType": "library",
+      "root": "libs/auth",
+      "sourceRoot": "libs/auth/src",
+      "prefix": "weddineo-frontend",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/auth/tsconfig.lib.json",
+              "libs/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/auth/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "auth-data": {
+      "projectType": "library",
+      "root": "libs/auth/data",
+      "sourceRoot": "libs/auth/data/src",
+      "prefix": "weddineo-frontend",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/auth/data/tsconfig.lib.json",
+              "libs/auth/data/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/auth/data/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/auth/data/jest.config.js",
             "passWithNoTests": true
           }
         }

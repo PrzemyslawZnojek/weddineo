@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { SelectOption } from '../../model/select-option';
 
 @Component({
-  selector: 'weddi-select',
+  selector: 'weddineo-frontend-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })

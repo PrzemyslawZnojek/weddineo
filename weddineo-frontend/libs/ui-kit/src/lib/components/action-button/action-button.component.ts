@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'weddi-action-button',
+  selector: 'weddineo-frontend-action-button',
   templateUrl: './action-button.component.html',
   styleUrls: ['./action-button.component.scss']
 })

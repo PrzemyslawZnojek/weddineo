@@ -41,6 +41,12 @@
     },
     "ui-kit": {
       "tags": []
+    },
+    "auth": {
+      "tags": []
+    },
+    "auth-data": {
+      "tags": []
     }
   }
 }
