@@ -1,4 +1,4 @@
-package com.worm.code.weddineo.model.wedding;
+package com.weddineo.wedding.checklist.model.wedding;
 
 public enum WeddingRole {
     ADMINISTRATOR,
