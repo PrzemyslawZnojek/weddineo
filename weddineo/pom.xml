@@ -11,7 +11,7 @@
 	<groupId>com.worm.code</groupId>
 	<artifactId>weddineo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>weddineo</name>
 	<description>Project for wedding industry</description>
 
@@ -91,6 +91,16 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<configuration>
+					<buildArgs>
+						<JAR_FILE_PATH>target/${project.build.finalName}.jar</JAR_FILE_PATH>
+					</buildArgs>
+				</configuration>
+			</plugin>
         </plugins>
 		<!-- TODO: Add lombok plugin and lombok goal in packaga phase - now app is not buildable to package-->
     </build>
