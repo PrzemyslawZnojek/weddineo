@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: '@spring.profiles.active@'
+server:
+  servlet:
+    context-path: /api
+
+firebase:
+  datebase-url: https://weddineo-236fc.firebaseio.com
+
+weddineo:
+  build-version: '@project.version@'

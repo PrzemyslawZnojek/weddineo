@@ -5,7 +5,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 import com.google.firebase.auth.UserRecord.CreateRequest;
 import com.weddineo.authentication.exception.WeddineoRegistrationRuntimeException;
-import com.weddineo.authentication.dto.RegistrationDTO;
+import com.weddineo.api.dto.RegistrationDTO;
 import org.springframework.stereotype.Service;
 
 @Service
