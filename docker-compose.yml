@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  weddineo-frontend.web:
+    image: weddineo-frontend.web
+    build:
+      context: .
+      dockerfile: ./weddineo-frontend/Dockerfile
+      args: 
+        NG_BUILD_CONF: local
+    ports:
+      - 9090:80
