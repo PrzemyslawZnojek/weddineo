@@ -1,4 +1,4 @@
-package com.weddineo.config;
+package com.weddineo.configuration;
 
 import com.google.common.collect.ImmutableList;
 
