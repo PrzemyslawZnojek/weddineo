@@ -1,3 +1,10 @@
 {
-  "title": "Weddineo"
+  "title": "Weddineo",
+  "auth": {
+    "login": {
+      "login": "Login",
+      "password": "Hasło",
+      "signIn": "Zaloguj się "
+    }
+  }
 }

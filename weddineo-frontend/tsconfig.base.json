@@ -18,7 +18,9 @@
     "paths": {
       "@weddineo-frontend/version": ["libs/version/src/index.ts"],
       "@weddineo-frontend/rest-api": ["libs/rest-api/src/index.ts"],
-      "@weddineo-frontend/ui-kit": ["libs/ui-kit/src/index.ts"]
+      "@weddineo-frontend/ui-kit": ["libs/ui-kit/src/index.ts"],
+      "@weddineo-frontend/auth": ["libs/auth/src/index.ts"],
+      "@weddineo-frontend/auth/data": ["libs/auth/data/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

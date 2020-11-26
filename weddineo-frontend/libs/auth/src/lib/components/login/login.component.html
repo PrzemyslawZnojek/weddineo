@@ -1,0 +1,26 @@
+<div [fxFlex]="'100%'" [fxLayoutAlign]="'center center'" class="container">
+  <mat-card [fxFlex.gt-xs]="'500px'" [fxFlex]="'80%'">
+    <mat-card-content [fxLayout]="'column'">
+      <weddineo-frontend-text-input
+        [label]="'auth.login.login' | translate"
+        [fc]="formGroup.get('login')"
+        [errors]="errors"
+      >
+      </weddineo-frontend-text-input>
+      <weddineo-frontend-text-input
+        [label]="'auth.login.password' | translate"
+        [fc]="formGroup.get('password')"
+        [type]="'password'"
+        [errors]="errors"
+      >
+      </weddineo-frontend-text-input>
+      <weddineo-frontend-action-button
+        [label]="'auth.login.signIn' | translate"
+        [width]="'150px'"
+        [fxLayoutAlign]="'center center'"
+        (onClick)="login()"
+      >
+      </weddineo-frontend-action-button>
+    </mat-card-content>
+  </mat-card>
+</div>

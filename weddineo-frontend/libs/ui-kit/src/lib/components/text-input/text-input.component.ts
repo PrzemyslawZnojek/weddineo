@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 import { ErrorMessage } from '../../model/error-message';
 
 @Component({
-  selector: 'weddi-text-input',
+  selector: 'weddineo-frontend-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss'],
 })

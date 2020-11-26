@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextInputComponent should match snapshot 1`] = `
-<weddi-text-input
+<weddineo-frontend-text-input
   enableClear="false"
   fc={[Function FormControl]}
   type={[Function String]}
@@ -12,13 +12,13 @@ exports[`TextInputComponent should match snapshot 1`] = `
     style="box-sizing: border-box; flex: 1 1 100%; max-width: 100%;"
   >
     <mat-label>
-      
+
     </mat-label>
     <input
       class="ng-untouched ng-pristine ng-valid"
       matinput=""
     />
-    
+
   </mat-form-field>
-</weddi-text-input>
+</weddineo-frontend-text-input>
 `;

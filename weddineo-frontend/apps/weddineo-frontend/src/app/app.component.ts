@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { VersionFacade } from '@weddineo-frontend/version';
 
 @Component({
-  selector: 'weddi-root',
+  selector: 'weddineo-frontend-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

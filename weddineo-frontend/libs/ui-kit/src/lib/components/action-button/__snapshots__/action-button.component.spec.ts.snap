@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionButtonComponent should match snapshot 1`] = `
-<weddi-action-button
+<weddineo-frontend-action-button
   buttonStyle={[Function String]}
   color={[Function String]}
   disabled="false"
@@ -12,8 +12,8 @@ exports[`ActionButtonComponent should match snapshot 1`] = `
     mat-raised-button=""
     style="box-sizing: border-box; flex: 1 1 100%; max-width: 100%;"
   >
-     
-  
+
+
   </button>
-</weddi-action-button>
+</weddineo-frontend-action-button>
 `;

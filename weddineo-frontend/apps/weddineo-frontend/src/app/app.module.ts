@@ -15,18 +15,22 @@ import { TokenInterceptor } from './shared/interceptor/token.interceptor';
 import { CommonModule } from '@angular/common';
 import { UiKitModule } from '@weddineo-frontend/ui-kit';
 import { environment } from '../environments/environment';
+import { AuthModule } from '@weddineo-frontend/auth'
+import { AppRoutingModule } from './app.routing.module'
+import { AngularFireModule } from '@angular/fire';
 
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
     CommonModule,
     UiKitModule,
     BrowserModule,
+    AuthModule,
+    AppRoutingModule,
     StoreModule.forRoot(
       {},
       {
@@ -48,6 +52,7 @@ export function createTranslateLoader(http: HttpClient) {
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     VersionModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
