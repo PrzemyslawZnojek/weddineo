@@ -1,1 +1,6 @@
-{{ (version$ | async)?.version }}
+<h1>{{ 'title' | translate }}</h1>
+
+<p>version: {{ (version$ | async)?.version }}</p>
+
+<p>revision: {{ (version$ | async)?.revision }}</p>
+<router-outlet></router-outlet>

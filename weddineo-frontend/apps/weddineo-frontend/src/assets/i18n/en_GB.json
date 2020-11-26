@@ -1,0 +1,10 @@
+{
+  "title": "Weddineo",
+  "auth": {
+    "login": {
+      "login": "Login",
+      "password": "Password",
+      "signIn": "Sign in"
+    }
+  }
+}

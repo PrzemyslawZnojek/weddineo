@@ -1,0 +1,43 @@
+<button
+  *ngIf="buttonStyle === 'basic'"
+  mat-button
+  [color]="color"
+  [fxFlex]="width"
+  (click)="onClick.emit()"
+  [disabled]="disabled"
+>
+  {{ label }}
+</button>
+
+<button
+  *ngIf="buttonStyle === 'raised'"
+  mat-raised-button
+  [color]="color"
+  [fxFlex]="width"
+  (click)="onClick.emit()"
+  [disabled]="disabled"
+>
+  {{ label }}
+</button>
+
+<button
+  *ngIf="buttonStyle === 'stroked'"
+  mat-stroked-button
+  [color]="color"
+  [fxFlex]="width"
+  (click)="onClick.emit()"
+  [disabled]="disabled"
+>
+  {{ label }}
+</button>
+
+<button
+  *ngIf="buttonStyle === 'flat'"
+  mat-flat-button
+  [color]="color"
+  [fxFlex]="width"
+  (click)="onClick.emit()"
+  [disabled]="disabled"
+>
+  {{ label }}
+</button>
