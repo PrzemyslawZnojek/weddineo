@@ -1,0 +1,50 @@
+<div [fxFlex]="'100%'" [fxLayoutAlign]="'center center'" class="container">
+  <mat-card [fxFlex.gt-xs]="'500px'" [fxFlex]="'80%'">
+
+    <mat-card-content [fxLayout]="'column'">
+      <weddineo-frontend-text-input
+        [label]="'auth.register.username' | translate"
+        [fc]="formGroup.get('username')"
+        [errors]="errors"
+      >
+      </weddineo-frontend-text-input>
+      <weddineo-frontend-text-input
+        [label]="'auth.register.email' | translate"
+        [fc]="formGroup.get('email')"
+        [errors]="errors"
+      >
+      </weddineo-frontend-text-input>
+      <weddineo-frontend-text-input
+        [label]="'auth.register.password' | translate"
+        [fc]="formGroup.get('password')"
+        [type]="'password'"
+        [errors]="errors"
+      >
+      </weddineo-frontend-text-input>
+      <weddineo-frontend-text-input
+        [label]="'auth.register.passwordConfirm' | translate"
+        [fc]="formGroup.get('passwordConfirm')"
+        [type]="'password'"
+        [errors]="errors"
+      >
+      </weddineo-frontend-text-input>
+      <div [fxLayout]="'row'" [fxLayoutGap]="'15px'">
+        <weddineo-frontend-action-button
+          [label]="'auth.register.register' | translate"
+          [width]="'150px'"
+          [fxLayoutAlign]="'center center'"
+          (onClick)="register()"
+        >
+        </weddineo-frontend-action-button>
+        <weddineo-frontend-action-button
+          [color]="'secondary'"
+          [label]="'auth.login.signIn' | translate"
+          [width]="'150px'"
+          [fxLayoutAlign]="'center center'"
+          (onClick)="goToLogin()"
+        >
+        </weddineo-frontend-action-button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
