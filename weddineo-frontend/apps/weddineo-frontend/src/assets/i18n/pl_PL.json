@@ -6,5 +6,9 @@
       "password": "Hasło",
       "signIn": "Zaloguj się "
     }
+  },
+  "footer": {
+    "version": "wersja",
+    "revision": "rewizja"
   }
 }

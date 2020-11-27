@@ -15,22 +15,27 @@ import { TokenInterceptor } from './shared/interceptor/token.interceptor';
 import { CommonModule } from '@angular/common';
 import { UiKitModule } from '@weddineo-frontend/ui-kit';
 import { environment } from '../environments/environment';
-import { AuthModule } from '@weddineo-frontend/auth'
-import { AppRoutingModule } from './app.routing.module'
+import { AuthModule } from '@weddineo-frontend/auth';
+import { AppRoutingModule } from './app.routing.module';
 import { AngularFireModule } from '@angular/fire';
-
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent],
   imports: [
     CommonModule,
     UiKitModule,
     BrowserModule,
     AuthModule,
     AppRoutingModule,
+    FlexLayoutModule,
+    MatToolbarModule,
     StoreModule.forRoot(
       {},
       {
