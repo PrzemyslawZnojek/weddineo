@@ -7,6 +7,15 @@ services:
       - "8080:8080"
     depends_on:
       - dbpostgresql
+  weddineo-frontend.web:
+    image: weddineo/weddineo-frontend
+    build:
+      context: .
+      dockerfile: ./weddineo-frontend/Dockerfile
+      args: 
+        NG_BUILD_CONF: local
+    ports:
+      - 9090:80
   dbpostgresql:
     image: postgres
     ports:
@@ -15,13 +24,5 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=mydb
-  weddineo-frontend.web:
-    image: weddineo-frontend.web
-    build:
-      context: .
-      dockerfile: ./weddineo-frontend/Dockerfile
-      args: 
-        NG_BUILD_CONF: local
-    ports:
-      - 9090:80
+
 
