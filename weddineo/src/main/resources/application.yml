@@ -12,6 +12,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    database: postgresql
 server:
   servlet:
     context-path: /api
