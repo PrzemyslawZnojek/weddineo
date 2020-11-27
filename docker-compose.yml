@@ -1,8 +1,21 @@
 version: '3.8'
 
 services:
+  dbpostgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=weddineo
   weddineo-backend:
     image: weddineo/weddineo-backend
+    build:
+       context: .
+       dockerfile: ./weddineo/Dockerfile
+       args: 
+        JAR_FILE_PATH: ./weddineo/target/*.jar
     ports:
       - "8080:8080"
     depends_on:
@@ -15,14 +28,9 @@ services:
       args: 
         NG_BUILD_CONF: local
     ports:
-      - 9090:80
-  dbpostgresql:
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=mydb
+      - "9090:80"
+    depends_on:
+      - weddineo-backend
+
 
 

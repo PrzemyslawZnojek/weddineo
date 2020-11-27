@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/weddineo
     username: postgres
-    password: pass
+    password: password
     hikari:
       connectionTimeout: 20000
       maximumPoolSize: 5
