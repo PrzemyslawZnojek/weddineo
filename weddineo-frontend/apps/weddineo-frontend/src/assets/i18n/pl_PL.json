@@ -14,7 +14,8 @@
       "login": "Login",
       "password": "Hasło",
       "signIn": "Zaloguj się",
-      "signOut": "Wyloguj"
+      "signOut": "Wyloguj",
+      "register": "Zarejestruj"
     },
     "register": {
       "username": "Nazwa",

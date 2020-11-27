@@ -54,6 +54,19 @@ export function reducer(
       return produce<AuthState>(state, (newState) => {
         newState.loading = false;
       });
+      case AuthActionTypes.Logout:
+        return produce<AuthState>(state, (newState) => {
+          newState.loading = true;
+        });
+      case AuthActionTypes.LogoutSuccess:
+        return produce<AuthState>(state, (newState) => {
+          newState.loading = false;
+          newState.userToken = null;
+        });
+      case AuthActionTypes.LogoutError:
+        return produce<AuthState>(state, (newState) => {
+          newState.loading = false;
+        });
     default:
       return state;
   }
