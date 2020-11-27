@@ -15,4 +15,13 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=mydb
-      
+  weddineo-frontend.web:
+    image: weddineo-frontend.web
+    build:
+      context: .
+      dockerfile: ./weddineo-frontend/Dockerfile
+      args: 
+        NG_BUILD_CONF: local
+    ports:
+      - 9090:80
+
