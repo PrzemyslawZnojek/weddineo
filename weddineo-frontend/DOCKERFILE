@@ -1,5 +1,5 @@
 ### TO BUILD FROM MAIN DIRECTORY ###
-# docker build --pull --rm -f "weddineo-frontend/DOCKERFILE" -t weddineo-frontend:latest . #
+# docker build --pull --rm -f "DOCKERFILE" -t weddineo-frontend:latest . #
 
 ### STAGE 1: Build ###
 
@@ -18,7 +18,7 @@ COPY weddineo-frontend/package.json weddineo-frontend/package-lock.json weddineo
 
 RUN npm install --unsafe-perm
 
-COPY . .
+COPY ./weddineo-frontend .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
 # place for use ang enviroment
