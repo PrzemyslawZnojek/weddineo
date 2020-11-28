@@ -3,19 +3,25 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.worm.code</groupId>
+		<artifactId>weddineo</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.worm.code</groupId>
-	<artifactId>weddineo</artifactId>
+
+
+	<artifactId>weddineo-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>weddineo</name>
+	<name>weddineo-core</name>
 	<description>Project for wedding industry</description>
 
     <properties>
+		<springboot.starter.parent.version>2.3.4.RELEASE</springboot.starter.parent.version>
+		<spring.boot.starter.tomcat.version>2.3.4.RELEASE</spring.boot.starter.tomcat.version>
+		<spring.boot.starter.data.jpa.version>2.3.4.RELEASE</spring.boot.starter.data.jpa.version>
+		<springboot.security.version>2.3.4.RELEASE</springboot.security.version>
+		<springboot.starter.test>2.3.4.RELEASE</springboot.starter.test>
+		<h2database.version>1.4.200</h2database.version>
         <java.version>11</java.version>
         <lombok.version>1.18.16</lombok.version>
 		<firebase.version>7.0.1</firebase.version>
@@ -30,11 +36,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${springboot.starter.parent.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>${spring.boot.starter.tomcat.version}</version>
 		</dependency>
 
 		<dependency>
@@ -46,12 +54,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
+			<version>${springboot.security.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<version>${springboot.starter.test}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.junit.vintage</groupId>
@@ -63,6 +73,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${spring.boot.starter.data.jpa.version}</version>
 		</dependency>
 
 		<dependency>
@@ -76,7 +87,9 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
+			<version>${h2database.version}</version>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/com.google.firebase/firebase-core -->
 		<dependency>
 			<groupId>com.google.firebase</groupId>
