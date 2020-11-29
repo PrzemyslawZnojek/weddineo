@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row [fxFlex]="'row'" [fxLayoutAlign]="'space-between'">
+    <p>{{ ('footer.version' | translate) + ' ' + version?.version }}</p>
+    <p>
+      {{ ('footer.revision' | translate) + ' ' + version?.revision }}
+    </p>
+  </mat-toolbar-row>
+</mat-toolbar>

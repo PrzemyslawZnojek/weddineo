@@ -1,6 +1,10 @@
-<h1>{{ 'title' | translate }}</h1>
+<div fxLayout="column" fxFlexFill>
+  <h1>{{ 'title' | translate }}</h1>
 
-<p>version: {{ (version$ | async)?.version }}</p>
-
-<p>revision: {{ (version$ | async)?.revision }}</p>
-<router-outlet></router-outlet>
+  <div fxFlex>
+    <router-outlet></router-outlet>
+  </div>
+  <weddineo-frontend-footer
+    [version]="version$ | async"
+  ></weddineo-frontend-footer>
+</div>

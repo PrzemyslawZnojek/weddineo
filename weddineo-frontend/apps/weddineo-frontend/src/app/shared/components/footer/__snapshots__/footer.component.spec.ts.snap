@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterComponent should match snapshot 1`] = `
+<weddineo-frontend-footer>
+  <mat-toolbar
+    color="primary"
+    style="box-sizing: border-box; display: flex; flex-direction: row;"
+  >
+    <mat-toolbar-row
+      style="align-content: stretch; align-items: stretch; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; flex: 1 1 100%; max-width: row;"
+    >
+      <p>
+        undefined null
+      </p>
+      <p>
+         undefined null 
+      </p>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</weddineo-frontend-footer>
+`;
