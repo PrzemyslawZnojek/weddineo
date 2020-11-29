@@ -1,7 +1,6 @@
 <mat-form-field appearance="outline" [fxFlex]="width">
   <mat-label>{{ label }}</mat-label>
   <input matInput [type]="type" [formControl]="fc" />
-  <mat-error *ngFor="let error of errors">
-    <div *ngIf="fc.hasError(error.error)">{{ error.message }}</div>
+  <mat-error *ngIf="fc.invalid">{{getError()}}
   </mat-error>
 </mat-form-field>

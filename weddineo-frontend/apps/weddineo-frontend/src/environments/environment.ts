@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080/',
+  defaultLang: 'pl_Pl',
   firebaseConfig: {
     apiKey: 'AIzaSyDdZRR9Zk3pmpJC32S7cdJ7_aA92ezAxQ0',
     authDomain: 'weddineo-236fc.firebaseapp.com',

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MockComponents } from 'ng-mocks';
+import { MockComponents, MockPipe } from 'ng-mocks';
 import { LoginComponent } from './login.component';
 import {
   ActionButtonComponent,
@@ -7,8 +7,12 @@ import {
 } from '@weddineo-frontend/ui-kit';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { AuthFacade } from '../../+state/auth.facade';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -16,10 +20,31 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatCardModule, FlexLayoutModule, ReactiveFormsModule],
+      imports: [
+        MatCardModule,
+        FlexLayoutModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+      ],
       declarations: [
         LoginComponent,
         MockComponents(ActionButtonComponent, TextInputComponent),
+        MockPipe(TranslatePipe),
+      ],
+      providers: [
+        {
+          provide: TranslateService,
+          useClass: class {
+            instant() {}
+          },
+        },
+        {
+          provide: AuthFacade,
+          useClass: class {
+            login() {}
+            getFirebaseUser$ = of();
+          },
+        },
       ],
     }).compileComponents();
   });
@@ -27,6 +52,10 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    component.formGroup = new FormGroup({
+      login: new FormControl(),
+      password: new FormControl(),
+    });
     fixture.detectChanges();
   });
 
@@ -42,9 +71,11 @@ describe('LoginComponent', () => {
   it('should render elements', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelectorAll('weddineo-frontend-text-input').length).toEqual(2);
-    expect(compiled.querySelectorAll('weddineo-frontend-action-button').length).toEqual(
-      1
-    );
+    expect(
+      compiled.querySelectorAll('weddineo-frontend-text-input').length
+    ).toEqual(2);
+    expect(
+      compiled.querySelectorAll('weddineo-frontend-action-button').length
+    ).toEqual(2);
   });
 });

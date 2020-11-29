@@ -1,9 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { AngularFireModule } from '@angular/fire';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
   TranslateLoader,
@@ -11,31 +14,24 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AuthModule } from '@weddineo-frontend/auth';
+import { UiKitModule } from '@weddineo-frontend/ui-kit';
 import { VersionModule } from '@weddineo-frontend/version';
-import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { from } from 'rxjs';
+import { environment } from '../environments/environment';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
 import { TokenInterceptor } from './shared/interceptor/token.interceptor';
-import { CommonModule } from '@angular/common';
-import { UiKitModule } from '@weddineo-frontend/ui-kit';
-import { environment } from '../environments/environment';
-import { AuthModule } from '@weddineo-frontend/auth';
-import { AppRoutingModule } from './app.routing.module';
-import { AngularFireModule } from '@angular/fire';
-<<<<<<< HEAD
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { HeaderComponent } from './shared/components/header/header.component';
-=======
 import { appInitializerFactory } from './shared/initializer/app-initializer';
->>>>>>> 11513a8... - login improvement - routing for auth module - autorization guard - improved baseUrl providing
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent],
+  declarations: [AppComponent, FooterComponent],
   imports: [
     CommonModule,
     UiKitModule,
@@ -70,7 +66,13 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: 'BASE_URL', useValue: environment.baseUrl, multi: true }
+    { provide: 'BASE_URL', useValue: environment.baseUrl, multi: true },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFactory,
+      deps: [TranslateService, Injector],
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

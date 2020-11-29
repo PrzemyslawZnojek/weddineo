@@ -1,6 +1,7 @@
 <div [fxFlex]="'100%'" [fxLayoutAlign]="'center center'" class="container">
   <mat-card [fxFlex.gt-xs]="'500px'" [fxFlex]="'80%'">
     logged user for testing: {{ (firebaseUser$ | async)?.email }}
+    <mat-card-title>{{ 'auth.login.signIn' | translate }}</mat-card-title>
     <mat-card-content [fxLayout]="'column'">
       <weddineo-frontend-text-input
         [label]="'auth.login.login' | translate"
@@ -15,20 +16,23 @@
         [errors]="errors"
       >
       </weddineo-frontend-text-input>
-      <weddineo-frontend-action-button
-        [label]="'auth.login.signIn' | translate"
-        [width]="'150px'"
-        [fxLayoutAlign]="'center center'"
-        (onClick)="login()"
-      >
-      </weddineo-frontend-action-button>
-      <weddineo-frontend-action-button
-      [label]="'auth.login.signOut' | translate"
-      [width]="'150px'"
-      [fxLayoutAlign]="'center center'"
-      (onClick)="logout()"
-    >
-    </weddineo-frontend-action-button>
+      <div [fxLayout]="'row'" [fxLayoutAlign]="'space-between center'">
+        <weddineo-frontend-action-button
+          [color]="'secondary'"
+          [label]="'auth.login.register' | translate"
+          [width]="'150px'"
+          [fxLayoutAlign]="'center center'"
+          (onClick)="goToRegister()"
+        >
+        </weddineo-frontend-action-button>
+        <weddineo-frontend-action-button
+          [label]="'auth.login.signIn' | translate"
+          [width]="'150px'"
+          [fxLayoutAlign]="'center center'"
+          (onClick)="login()"
+        >
+        </weddineo-frontend-action-button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

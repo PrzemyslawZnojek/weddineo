@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { isNil } from 'lodash';
 import { ErrorMessage } from '../../model/error-message';
 
 @Component({
@@ -14,4 +15,10 @@ export class TextInputComponent {
   @Input() type: 'text' | 'password' = 'text';
   @Input() enableClear: boolean = false;
   @Input() errors: ErrorMessage[];
+
+  getError() {
+    if (!isNil(this.errors)) {
+      return this.errors.find((err) => this.fc.hasError(err.error))?.message;
+    }
+  }
 }

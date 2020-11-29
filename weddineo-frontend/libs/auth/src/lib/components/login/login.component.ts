@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ErrorMessage } from 'libs/ui-kit/src/lib/model/error-message';
 import { switchMap } from 'rxjs/operators';
 import { AuthFacade } from '../../+state/auth.facade';
@@ -14,7 +16,13 @@ export class LoginComponent implements OnInit {
 
   firebaseUser$ = this.authFacade.getFirebaseUser$;
 
-  constructor(private fb: FormBuilder, private authFacade: AuthFacade) {}
+  constructor(
+    private fb: FormBuilder,
+    private authFacade: AuthFacade,
+    private translateService: TranslateService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -30,7 +38,7 @@ export class LoginComponent implements OnInit {
   errors: ErrorMessage[] = [
     {
       error: 'required',
-      message: 'Field is required',
+      message: this.translateService.instant('common.validator.required'),
     },
   ];
 
@@ -41,7 +49,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  logout() {
-    this.authFacade.logout();
+  goToRegister() {
+    this.router.navigate(['register'], { relativeTo: this.route });
   }
 }

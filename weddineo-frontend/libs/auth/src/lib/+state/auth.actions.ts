@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { LoginCommand } from '@weddineo-frontend/rest-api';
+import { LoginCommand, RegisterCommand } from '@weddineo-frontend/rest-api';
 
 export enum AuthActionTypes {
   Login = '[Auth] Login',
@@ -9,6 +9,10 @@ export enum AuthActionTypes {
   Logout = '[Auth] Logout',
   LogoutSuccess = '[Auth] Logout Success',
   LogoutError = '[Auth] Logout Error',
+
+  Register = '[Auth] Register',
+  RegisterSuccess = '[Auth] Register Success',
+  RegisterError = '[Auth] Register Error',
 }
 
 export class Login implements Action {
@@ -37,13 +41,30 @@ export class LogoutError implements Action {
   readonly type = AuthActionTypes.LogoutError;
 }
 
+export class Register implements Action {
+  readonly type = AuthActionTypes.Register;
+  constructor(public payload: RegisterCommand) {}
+}
+
+export class RegisterSuccess implements Action {
+  readonly type = AuthActionTypes.RegisterSuccess;
+  constructor(public payload: RegisterCommand) {}
+}
+
+export class RegisterError implements Action {
+  readonly type = AuthActionTypes.RegisterError;
+}
+
 export type AuthActions =
   | Login
   | LoginSuccess
   | LoginError
   | Logout
   | LogoutSuccess
-  | LogoutError;
+  | LogoutError
+  | Register
+  | RegisterSuccess
+  | RegisterError;
 
 export const fromAuthActions = {
   Login,
@@ -52,4 +73,7 @@ export const fromAuthActions = {
   Logout,
   LogoutSuccess,
   LogoutError,
+  Register,
+  RegisterSuccess,
+  RegisterError,
 };

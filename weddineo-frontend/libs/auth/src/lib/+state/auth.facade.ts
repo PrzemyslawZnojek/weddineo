@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { AuthService, LoginCommand } from '@weddineo-frontend/rest-api';
-import { Login, Logout } from './auth.actions';
+import {
+  AuthService,
+  LoginCommand,
+  RegisterCommand,
+} from '@weddineo-frontend/rest-api';
+import { Login, Logout, Register } from './auth.actions';
 import { AuthPartialState } from './auth.reducer';
 import { authQuerry } from './auth.selectors';
 
@@ -22,5 +26,9 @@ export class AuthFacade {
 
   logout() {
     this.store.dispatch(new Logout());
+  }
+
+  register(command: RegisterCommand) {
+    this.store.dispatch(new Register(command));
   }
 }

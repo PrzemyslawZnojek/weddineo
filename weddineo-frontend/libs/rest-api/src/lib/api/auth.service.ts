@@ -27,13 +27,15 @@ export class AuthService {
   }
 
   logout() {
-    this.router.navigateByUrl('auth');
     return from(this.fireAuth.signOut());
     //todo: logout from BE
   }
 
-  register(command: RegisterCommand) {
-    return this.http.post(this.apiBaseUrl + 'register', command);
+  register(command: RegisterCommand): Observable<RegisterCommand> {
+    return this.http.post<RegisterCommand>(
+      this.apiBaseUrl + 'register',
+      command
+    );
   }
 
   private loginToFirebase(command: LoginCommand): Observable<any> {
