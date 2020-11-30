@@ -14,6 +14,8 @@ import { AuthEffects } from './+state/auth.effects';
 import { AuthFacade } from './+state/auth.facade';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { TranslateModule } from '@ngx-translate/core';
+import { RegisterComponent } from './components/register/register.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 
 @NgModule({
   imports: [
@@ -29,7 +31,7 @@ import { TranslateModule } from '@ngx-translate/core';
     EffectsModule.forFeature([AuthEffects]),
     AngularFireAuthModule,
   ],
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent, PasswordResetComponent],
   providers: [AuthFacade],
 })
 export class AuthModule {}

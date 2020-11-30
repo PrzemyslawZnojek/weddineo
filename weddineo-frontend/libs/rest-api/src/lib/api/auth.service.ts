@@ -1,34 +1,46 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { from, Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { LoginCommand } from '../model/login-command';
 import { RegisterCommand } from '../model/register-command';
-import { variables } from '../variables';
 
 @Injectable()
 export class AuthService {
-  private apiBaseUrl = variables.API_URL + 'auth/';
+  private apiBaseUrl = this.BASE_URL + 'auth/';
 
-  constructor(private http: HttpClient, private fireAuth: AngularFireAuth) {}
+  firebaseUser$ = this.fireAuth.user;
 
-  login(command: LoginCommand): Observable<LoginCommand> {
-    return from(
-      this.fireAuth
-        .signInWithEmailAndPassword(command.login, command.password)
-        .then((data) => {
-          return data.user.getIdToken().then((token) => {
-            localStorage.setItem('ID_TOKEN', token);
-            return this.http.post<LoginCommand>(
-              this.apiBaseUrl + 'login',
-              command
-            );
-          });
-        })
+  constructor(
+    private http: HttpClient,
+    private fireAuth: AngularFireAuth,
+    private router: Router,
+    @Inject('BASE_URL') private BASE_URL: string
+  ) {}
+
+  login(command: LoginCommand) {
+    return this.loginToFirebase(command).pipe(
+      switchMap((data) => from(<Promise<string>>data.user.getIdToken()))
     );
   }
 
-  register(command: RegisterCommand) {
-    return this.http.post(this.apiBaseUrl + 'register', command);
+  logout() {
+    return from(this.fireAuth.signOut());
+    //todo: logout from BE
+  }
+
+  register(command: RegisterCommand): Observable<RegisterCommand> {
+    return this.http.post<RegisterCommand>(
+      this.apiBaseUrl + 'register',
+      command
+    );
+  }
+
+  private loginToFirebase(command: LoginCommand): Observable<any> {
+    return from(
+      this.fireAuth.signInWithEmailAndPassword(command.login, command.password)
+    );
   }
 }

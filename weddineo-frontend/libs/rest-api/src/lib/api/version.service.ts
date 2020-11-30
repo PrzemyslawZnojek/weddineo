@@ -1,16 +1,18 @@
-import { Version } from '../model/model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { variables } from '../variables';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Version } from '../model/model';
 
 @Injectable()
 export class VersionService {
-  private apiBaseUrl = variables.API_URL;
+  private apiBaseUrl = this.BASE_URL;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject('BASE_URL') private BASE_URL: string
+  ) {}
 
   public getVersion(): Observable<Version> {
-    return this.http.get<Version>(this.apiBaseUrl + 'ver')
+    return this.http.get<Version>(this.apiBaseUrl + 'ver');
   }
 }
