@@ -23,6 +23,7 @@ logging:
         SQL: DEBUG
 firebase:
   datebase-url: https://weddineo-236fc.firebaseio.com
+  credentials-path: "${WEDDINEO_FIREBASE_CREDENTIALS_PATH}"
 
 weddineo:
   build-version: '@project.version@'
