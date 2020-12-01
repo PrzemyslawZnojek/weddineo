@@ -10,6 +10,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=weddineo
+
   weddineo-core:
     image: weddineo/weddineo-core
     build:
@@ -17,10 +18,15 @@ services:
        dockerfile: ./weddineo-core/Dockerfile
        args: 
         JAR_FILE_PATH: ./weddineo-core/target/*.jar
+    volumes:
+      - ${WEDDINEO_FIREBASE_CREDENTIALS_PATH}:/opt/weddineo/private_keys/firebase-private-key.json
+    environment:
+      - WEDDINEO_FIREBASE_CREDENTIALS_PATH=/opt/weddineo/private_keys/firebase-private-key.json
     ports:
       - "8080:8080"
     depends_on:
       - dbpostgresql
+
   weddineo-frontend.web:
     image: weddineo/weddineo-frontend
     build:
