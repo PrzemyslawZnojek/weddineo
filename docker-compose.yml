@@ -3,19 +3,20 @@ version: '3.8'
 services:
   dbpostgresql:
     image: postgres
+    container_name: postgresDatabase
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
       - POSTGRES_DB=weddineo
-  weddineo-backend:
-    image: weddineo/weddineo-backend
+  weddineo-core:
+    image: weddineo/weddineo-core
     build:
        context: .
-       dockerfile: ./weddineo/Dockerfile
+       dockerfile: ./weddineo-core/Dockerfile
        args: 
-        JAR_FILE_PATH: ./weddineo/target/*.jar
+        JAR_FILE_PATH: ./weddineo-core/target/*.jar
     ports:
       - "8080:8080"
     depends_on:
@@ -30,7 +31,7 @@ services:
     ports:
       - "9090:80"
     depends_on:
-      - weddineo-backend
+      - weddineo-core
 
 
 
