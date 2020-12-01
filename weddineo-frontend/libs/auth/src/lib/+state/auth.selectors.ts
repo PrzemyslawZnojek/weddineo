@@ -8,12 +8,12 @@ const getLoading = createSelector(
   (state: AuthState) => state.loading
 );
 
-const getUser = createSelector(
+const getUserToken = createSelector(
   getAuthState,
-  (state: AuthState) => state.user
+  (state: AuthState) => state.userToken
 );
 
 export const authQuerry = {
   getLoading,
-  getUser,
+  getUserToken,
 };

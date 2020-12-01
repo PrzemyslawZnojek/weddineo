@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginComponent should match snapshot 1`] = `
-<weddineo-frontend-login
+exports[`RegisterComponent should match snapshot 1`] = `
+<weddineo-frontend-register
+  MIN_LENGTH={[Function Number]}
   authFacade={[Function useClass]}
   errors={[Function Array]}
   fb={[Function FormBuilder]}
-  firebaseUser$={[Function Observable]}
   formGroup={[Function FormGroup]}
   route={[Function ActivatedRoute]}
   router={[Function Router]}
@@ -19,16 +19,17 @@ exports[`LoginComponent should match snapshot 1`] = `
       class="mat-card mat-focus-indicator"
       style="box-sizing: border-box; max-width: 80%; flex: 1 1 100%;"
     >
-       logged user for testing:  
-      <mat-card-title
-        class="mat-card-title"
-      >
-        
-      </mat-card-title>
       <mat-card-content
         class="mat-card-content"
         style="box-sizing: border-box; display: flex; flex-direction: column;"
       >
+        <mat-card-title
+          class="mat-card-title"
+        >
+          
+        </mat-card-title>
+        <weddineo-frontend-text-input />
+        <weddineo-frontend-text-input />
         <weddineo-frontend-text-input />
         <weddineo-frontend-text-input />
         <div
@@ -44,5 +45,5 @@ exports[`LoginComponent should match snapshot 1`] = `
       </mat-card-content>
     </mat-card>
   </div>
-</weddineo-frontend-login>
+</weddineo-frontend-register>
 `;

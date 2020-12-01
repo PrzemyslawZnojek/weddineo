@@ -1,10 +1,28 @@
 {
   "title": "Weddineo",
+  "common": {
+    "validator": {
+      "required": "Pole jest wymagane",
+      "minLength": "Minimalna długość: {{minLength}}",
+      "maxLength": "Maksymalna długość {{maxLength}}",
+      "email": "Wprowadź poprawny email",
+      "password": "Hasła nie są identyczne"
+    }
+  },
   "auth": {
     "login": {
       "login": "Login",
       "password": "Hasło",
-      "signIn": "Zaloguj się "
+      "signIn": "Zaloguj się",
+      "signOut": "Wyloguj",
+      "register": "Zarejestruj"
+    },
+    "register": {
+      "username": "Nazwa",
+      "email": "E-mail",
+      "password": "Hasło",
+      "passwordConfirm": "Potwierdź hasło",
+      "register": "Zarejestruj"
     }
   },
   "footer": {

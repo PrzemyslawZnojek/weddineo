@@ -1,22 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MockComponents, MockPipe } from 'ng-mocks';
-import { LoginComponent } from './login.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import {
   ActionButtonComponent,
   TextInputComponent,
 } from '@weddineo-frontend/ui-kit';
-import { MatCardModule } from '@angular/material/card';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { MockComponents, MockPipe } from 'ng-mocks';
 import { AuthFacade } from '../../+state/auth.facade';
-import { ActivatedRoute, Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
+import { RegisterComponent } from './register.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('RegisterComponent', () => {
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,7 +25,7 @@ describe('LoginComponent', () => {
         RouterTestingModule,
       ],
       declarations: [
-        LoginComponent,
+        RegisterComponent,
         MockComponents(ActionButtonComponent, TextInputComponent),
         MockPipe(TranslatePipe),
       ],
@@ -41,8 +39,7 @@ describe('LoginComponent', () => {
         {
           provide: AuthFacade,
           useClass: class {
-            login() {}
-            getFirebaseUser$ = of();
+            register() {}
           },
         },
       ],
@@ -50,12 +47,8 @@ describe('LoginComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
-    component.formGroup = new FormGroup({
-      login: new FormControl(),
-      password: new FormControl(),
-    });
     fixture.detectChanges();
   });
 
@@ -73,7 +66,7 @@ describe('LoginComponent', () => {
     const compiled = fixture.nativeElement;
     expect(
       compiled.querySelectorAll('weddineo-frontend-text-input').length
-    ).toEqual(2);
+    ).toEqual(4);
     expect(
       compiled.querySelectorAll('weddineo-frontend-action-button').length
     ).toEqual(2);
