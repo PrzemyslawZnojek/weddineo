@@ -11,4 +11,5 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "firebase")
 public class FirebaseProperties {
     private String databaseUrl;
+    private String credentialsPath;
 }

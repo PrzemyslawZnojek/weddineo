@@ -3,37 +3,32 @@ package com.weddineo.firebase.service;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.weddineo.firebase.FirebaseProperties;
 import com.weddineo.firebase.exception.WeddineoFirebaseRuntimeException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 
 @Component
 @Slf4j
 public class FirebaseAppInitializer {
 
-    @Value("classpath:firebase/weddineo-an-firebase-adminsdk.json")
-    private Resource firebasePrivateKey;
+    private final FirebaseProperties firebaseProperties;
 
-    @Value("${firebase.datebase.url}")
-    private String firebaseDatabaseURL;
+    public FirebaseAppInitializer(FirebaseProperties firebaseProperties) {
+        this.firebaseProperties = firebaseProperties;
+    }
 
     @PostConstruct
     public void init() {
         log.info("Initializing firebase service...");
-        try {
-            if (firebaseAppIsEmpty()) {
-                initializeFirebaseApp();
-            }
-        } catch (FileNotFoundException e) {
-            throw new WeddineoFirebaseRuntimeException("Firebase credentials file not found");
-        } catch (IOException e) {
-            throw new WeddineoFirebaseRuntimeException("Cannot read firebase credentials file");
+        if (firebaseAppIsEmpty()) {
+            initializeFirebaseApp();
         }
         log.info("Firebase service initialized successfully");
     }
@@ -42,19 +37,28 @@ public class FirebaseAppInitializer {
         return FirebaseApp.getApps().isEmpty();
     }
 
-    private void initializeFirebaseApp() throws IOException {
+    private void initializeFirebaseApp() {
         FirebaseOptions options = createFirebaseOptions();
         FirebaseApp.initializeApp(options);
     }
 
-    private FirebaseOptions createFirebaseOptions() throws IOException {
+    private FirebaseOptions createFirebaseOptions() {
         return FirebaseOptions.builder()
                 .setCredentials(getGoogleCredentials())
-                .setDatabaseUrl(firebaseDatabaseURL)
+                .setDatabaseUrl(firebaseProperties.getDatabaseUrl())
                 .build();
     }
 
-    private GoogleCredentials getGoogleCredentials() throws IOException {
-        return GoogleCredentials.fromStream(firebasePrivateKey.getInputStream());
+    private GoogleCredentials getGoogleCredentials() {
+        log.info("Loading credentials from file: {}", firebaseProperties.getCredentialsPath());
+        try {
+            InputStream credentialsInputStream = new FileInputStream(firebaseProperties.getCredentialsPath());
+            return GoogleCredentials.fromStream(credentialsInputStream);
+        } catch (FileNotFoundException e) {
+            throw new WeddineoFirebaseRuntimeException(
+                    String.format("Firebase credentials file not found: %s", firebaseProperties.getCredentialsPath()));
+        } catch (IOException e) {
+            throw new WeddineoFirebaseRuntimeException("Cannot read firebase credentials file", e);
+        }
     }
 }
