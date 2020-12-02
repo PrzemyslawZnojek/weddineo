@@ -14,7 +14,7 @@ Application requires PostgreSQL RDBMS running on localhost:5432.
 It should contain empty database named *weddineo*. 
 The easiest way to achive that is to run:
 
-<code>docker run --name weddineo-postgres -p 5432:5432 -e POSTGRES_PASSWORD=pass -d postgres</code>
+<code>docker run --name weddineo-postgres -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres</code>
 
 #### Firebase
 
