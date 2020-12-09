@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorMessage } from 'libs/ui-kit/src/lib/model/error-message';
-import { switchMap } from 'rxjs/operators';
+import { ErrorMessage } from '@weddineo-frontend/shared/ui-kit';
 import { AuthFacade } from '../../+state/auth.facade';
 
 @Component({

@@ -4,7 +4,7 @@ import { LoginComponent } from './login.component';
 import {
   ActionButtonComponent,
   TextInputComponent,
-} from '@weddineo-frontend/ui-kit';
+} from '@weddineo-frontend/shared/ui-kit';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';

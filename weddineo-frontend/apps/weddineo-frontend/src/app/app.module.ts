@@ -3,7 +3,6 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -15,31 +14,32 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthModule } from '@weddineo-frontend/auth';
-import { UiKitModule } from '@weddineo-frontend/ui-kit';
+import { SharedFooterModule } from '@weddineo-frontend/shared/footer';
+import { SharedHeaderModule } from '@weddineo-frontend/shared/header';
+import { SharedUiKitModule } from '@weddineo-frontend/shared/ui-kit';
 import { VersionModule } from '@weddineo-frontend/version';
-import { from } from 'rxjs';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import { appInitializerFactory } from './shared/initializer/app-initializer';
 import { ErrorInterceptor } from './shared/interceptor/error.interceptor';
 import { TokenInterceptor } from './shared/interceptor/token.interceptor';
-import { appInitializerFactory } from './shared/initializer/app-initializer';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent],
+  declarations: [AppComponent],
   imports: [
     CommonModule,
-    UiKitModule,
+    SharedUiKitModule,
     BrowserModule,
     AuthModule,
+    SharedFooterModule,
+    SharedHeaderModule,
     AppRoutingModule,
     FlexLayoutModule,
-    MatToolbarModule,
     StoreModule.forRoot(
       {},
       {
