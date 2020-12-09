@@ -22,7 +22,7 @@ COPY ./weddineo-frontend .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
 # place for use ang enviroment
-RUN npm run build
+RUN npm run build --prod
 
 ### STAGE 2: Setup ###
 
@@ -32,7 +32,7 @@ FROM nginx:1.13.3-alpine
 COPY weddineo-frontend/nginx/default.conf /etc/nginx/conf.d/
 
 ## Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
+RUN rm -rf /usr/share/nginx/html/
 
 ## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
 COPY --from=builder ng-app/dist/apps/weddineo-frontend /usr/share/nginx/html
