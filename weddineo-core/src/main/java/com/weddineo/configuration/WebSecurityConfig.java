@@ -1,11 +1,12 @@
 package com.weddineo.configuration;
 
 import com.google.common.collect.ImmutableList;
+import com.weddineo.configuration.filter.FirebaseFilter;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -20,6 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().configurationSource(corsConfigurationSource()).and().csrf().disable().anonymous().and()
                 .authorizeRequests().antMatchers("*", "/**").permitAll()
                 .and().httpBasic();
+                addFilters(http);
 
     }
 
@@ -33,5 +35,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
+    }
+
+    private void addFilters(HttpSecurity http) {
+        FirebaseFilter filter = FirebaseFilter.builder().build();
+        http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
     }
 }
