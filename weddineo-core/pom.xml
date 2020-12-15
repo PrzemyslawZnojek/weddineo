@@ -7,7 +7,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-
 	<artifactId>weddineo-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -25,7 +24,7 @@
 		<maven-lombok.version>1.18.10.0</maven-lombok.version>
 		<maven.resource.version>3.2.0</maven.resource.version>
 		<git-commit-id.version>4.0.2</git-commit-id.version>
-		<flywaydb.core.version>7.3.1</flywaydb.core.version>
+		<flywaydb.version>7.3.1</flywaydb.version>
 	</properties>
 
 	<dependencies>
@@ -149,7 +148,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>${flywaydb.core.version}</version>
+			<version>${flywaydb.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -239,6 +238,34 @@
 					</includeOnlyProperties>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>${flywaydb.version}</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>migrate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<driver>org.postgresql.Driver</driver>
+					<url>jdbc:postgresql://postgresDatabase:5432/weddineo</url>
+					<user>postgres</user>
+					<password>password</password>
+					<baselineOnMigrate>true</baselineOnMigrate>
+					<schemas>public</schemas>
+					<locations>
+						<location>
+							filesystem:src/main/resources/db/migration
+						</location>
+					</locations>
+				</configuration>
+			</plugin>
+
 		</plugins>
     </build>
 
