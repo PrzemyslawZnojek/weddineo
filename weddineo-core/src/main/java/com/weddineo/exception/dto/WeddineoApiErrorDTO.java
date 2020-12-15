@@ -16,7 +16,7 @@ public class WeddineoApiErrorDTO {
     private final LocalDateTime timestamp = LocalDateTime.now();
     private final String path;
     private final String message;
-    private final String debugMessage;
+    private String debugMessage;
 
     public WeddineoApiErrorDTO(HttpStatus status, Throwable exception, WebRequest request) {
         this.status = status;
@@ -32,5 +32,10 @@ public class WeddineoApiErrorDTO {
         this.path = ((ServletWebRequest)request).getRequest().getRequestURI();
     }
 
+    public WeddineoApiErrorDTO(HttpStatus status, String message, WebRequest request) {
+        this.status = status;
+        this.message = message;
+        this.path = ((ServletWebRequest)request).getRequest().getRequestURI();
+    }
 
 }
