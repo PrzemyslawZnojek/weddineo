@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth.routing.module';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UiKitModule } from '@weddineo-frontend/ui-kit';
+import { SharedUiKitModule } from '@weddineo-frontend/shared/ui-kit';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import * as fromAuth from './+state/auth.reducer';
@@ -26,12 +26,12 @@ import { PasswordResetComponent } from './components/password-reset/password-res
     MatCardModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    UiKitModule,
+    SharedUiKitModule,
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
     EffectsModule.forFeature([AuthEffects]),
     AngularFireAuthModule,
   ],
   declarations: [LoginComponent, RegisterComponent, PasswordResetComponent],
-  providers: [AuthFacade],
+  providers: [AuthFacade]
 })
 export class AuthModule {}

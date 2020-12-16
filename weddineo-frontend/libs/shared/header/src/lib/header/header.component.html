@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row [fxFlex]="'row'" [fxLayoutAlign]="'space-between center'">
+    <div>{{ 'title' | translate }}</div>
+    <div [fxLayoutAlign]="'space-between center'">
+      <span class="username">{{ (username$  | async)?.email }}</span>
+      <span class="material-icons">
+        account_circle
+      </span>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

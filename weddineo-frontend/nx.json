@@ -39,13 +39,19 @@
     "rest-api": {
       "tags": []
     },
-    "ui-kit": {
-      "tags": []
-    },
     "auth": {
       "tags": []
     },
     "auth-data": {
+      "tags": []
+    },
+    "shared-ui-kit": {
+      "tags": []
+    },
+    "shared-header": {
+      "tags": []
+    },
+    "shared-footer": {
       "tags": []
     }
   }

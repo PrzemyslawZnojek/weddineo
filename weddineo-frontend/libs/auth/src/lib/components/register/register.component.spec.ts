@@ -7,7 +7,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import {
   ActionButtonComponent,
   TextInputComponent,
-} from '@weddineo-frontend/ui-kit';
+} from '@weddineo-frontend/shared/ui-kit';
 import { MockComponents, MockPipe } from 'ng-mocks';
 import { AuthFacade } from '../../+state/auth.facade';
 import { RegisterComponent } from './register.component';

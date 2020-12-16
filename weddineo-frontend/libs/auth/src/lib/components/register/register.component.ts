@@ -4,9 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
   emailValidator,
+  ErrorMessage,
   matchFieldsValidator,
-} from '@weddineo-frontend/ui-kit';
-import { ErrorMessage } from 'libs/ui-kit/src/lib/model/error-message';
+} from '@weddineo-frontend/shared/ui-kit';
 import { AuthFacade } from '../../+state/auth.facade';
 
 @Component({
