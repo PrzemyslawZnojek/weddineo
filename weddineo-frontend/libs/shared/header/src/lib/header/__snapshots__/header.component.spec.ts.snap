@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should match snapshot 1`] = `
+<weddineo-frontend-header
+  authFacade={[Function useClass]}
+  username$="undefined"
+>
+  <mat-toolbar
+    color="primary"
+    style="box-sizing: border-box; display: flex; flex-direction: row;"
+  >
+    <mat-toolbar-row
+      style="align-content: center; align-items: center; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; flex: 1 1 100%; max-width: row;"
+    >
+      <div>
+        
+      </div>
+      <div
+        style="align-content: center; align-items: center; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between;"
+      >
+        <span
+          class="username"
+        >
+          
+        </span>
+        <span
+          class="material-icons"
+        >
+           account_circle 
+        </span>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</weddineo-frontend-header>
+`;

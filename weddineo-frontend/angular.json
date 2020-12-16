@@ -186,36 +186,6 @@
         }
       }
     },
-    "ui-kit": {
-      "projectType": "library",
-      "root": "libs/ui-kit",
-      "sourceRoot": "libs/ui-kit/src",
-      "prefix": "weddineo-frontend",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ui-kit/tsconfig.lib.json",
-              "libs/ui-kit/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ui-kit/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui-kit/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "auth": {
       "projectType": "library",
       "root": "libs/auth",
@@ -266,6 +236,96 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/auth/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-ui-kit": {
+      "projectType": "library",
+      "root": "libs/shared/ui-kit",
+      "sourceRoot": "libs/shared/ui-kit/src",
+      "prefix": "weddineo-frontend",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui-kit/tsconfig.lib.json",
+              "libs/shared/ui-kit/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/ui-kit/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui-kit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-header": {
+      "projectType": "library",
+      "root": "libs/shared/header",
+      "sourceRoot": "libs/shared/header/src",
+      "prefix": "weddineo-frontend",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/header/tsconfig.lib.json",
+              "libs/shared/header/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/header/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/header/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-footer": {
+      "projectType": "library",
+      "root": "libs/shared/footer",
+      "sourceRoot": "libs/shared/footer/src",
+      "prefix": "weddineo-frontend",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/footer/tsconfig.lib.json",
+              "libs/shared/footer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/footer/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/footer/jest.config.js",
             "passWithNoTests": true
           }
         }

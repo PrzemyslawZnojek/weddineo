@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectComponent should match snapshot 1`] = `
+<weddineo-frontend-select
+  fc={[Function FormControl]}
+  width={[Function String]}
+>
+  <mat-form-field
+    appearance="outline"
+    style="box-sizing: border-box; flex: 1 1 100%; max-width: 100%;"
+  >
+    <mat-label>
+      
+    </mat-label>
+    <mat-select
+      class="ng-untouched ng-pristine ng-valid"
+    >
+      
+    </mat-select>
+  </mat-form-field>
+</weddineo-frontend-select>
+`;

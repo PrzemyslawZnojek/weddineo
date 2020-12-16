@@ -27,3 +27,4 @@ firebase:
 
 weddineo:
   build-version: '@project.version@'
+  public-urls: ['/auth/register']

@@ -27,8 +27,9 @@ export class AuthService {
   }
 
   logout() {
-    return from(this.fireAuth.signOut());
-    //todo: logout from BE
+    return from(this.fireAuth.signOut()).pipe(
+      switchMap(() => this.http.post<void>(this.apiBaseUrl + 'logout', null))
+    );
   }
 
   register(command: RegisterCommand): Observable<RegisterCommand> {
