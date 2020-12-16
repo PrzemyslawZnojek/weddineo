@@ -22,7 +22,9 @@
       "@weddineo-frontend/auth/data": ["libs/auth/data/src/index.ts"],
       "@weddineo-frontend/shared/ui-kit": ["libs/shared/ui-kit/src/index.ts"],
       "@weddineo-frontend/shared/header": ["libs/shared/header/src/index.ts"],
-      "@weddineo-frontend/shared/footer": ["libs/shared/footer/src/index.ts"]
+      "@weddineo-frontend/shared/footer": ["libs/shared/footer/src/index.ts"],
+      "@weddineo-frontend/home": ["libs/home/src/index.ts"],
+      "@weddineo-frontend/main": ["libs/main/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

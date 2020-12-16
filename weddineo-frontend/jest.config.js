@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/libs/shared/ui-kit',
     '<rootDir>/libs/shared/header',
     '<rootDir>/libs/shared/footer',
+    '<rootDir>/libs/home',
   ],
 };

@@ -11,6 +11,7 @@ import {
   Register,
   LogoutSuccess,
   Logout,
+  LogoutError,
 } from './auth.actions';
 
 @Injectable()
@@ -37,7 +38,12 @@ export class AuthEffects {
 
   @Effect({ dispatch: false }) logoutSuccess$ = this.actions$.pipe(
     ofType<LogoutSuccess>(AuthActionTypes.LogoutSuccess),
-    tap(() => this.router.navigateByUrl('auth'))
+    tap(() => this.router.navigateByUrl('home'))
+  );
+
+  @Effect({ dispatch: false }) logoutError$ = this.actions$.pipe(
+    ofType<LogoutError>(AuthActionTypes.LogoutError),
+    tap(() => this.router.navigateByUrl('home'))
   );
 
   @Effect() register$ = this.actions$.pipe(

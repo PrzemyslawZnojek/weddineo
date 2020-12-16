@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthFacade } from '@weddineo-frontend/auth';
 import { VersionFacade } from '@weddineo-frontend/version';
 
 @Component({
@@ -12,5 +13,6 @@ export class AppComponent {
 
   constructor(private versionFacade: VersionFacade) {
     this.versionFacade.loadVersion();
+
   }
 }

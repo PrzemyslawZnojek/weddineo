@@ -1,4 +1,4 @@
-<div [fxFlex]="'100%'" [fxLayoutAlign]="'center center'" class="container">
+<div [fxFlex]="'100%'" [fxLayoutAlign]="'center center'">
   <mat-card [fxFlex.gt-xs]="'500px'" [fxFlex]="'80%'">
     logged user for testing: {{ (firebaseUser$ | async)?.email }}
     <mat-card-title>{{ 'auth.login.signIn' | translate }}</mat-card-title>
@@ -18,7 +18,7 @@
       </weddineo-frontend-text-input>
       <div [fxLayout]="'row'" [fxLayoutAlign]="'space-between center'">
         <weddineo-frontend-action-button
-          [color]="'secondary'"
+          [color]="'accent'"
           [label]="'auth.login.register' | translate"
           [width]="'150px'"
           [fxLayoutAlign]="'center center'"

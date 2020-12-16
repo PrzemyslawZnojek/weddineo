@@ -5,41 +5,33 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
-import { HeaderComponent } from './header.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { AuthFacade } from '@weddineo-frontend/auth';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HomeComponent } from './home.component';
+import { ActionButtonComponent } from '@weddineo-frontend/shared/ui-kit';
+import { MatCardModule } from '@angular/material/card';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         FlexLayoutModule,
         RouterTestingModule,
-        MockModule(MatToolbarModule),
-        MockModule(MatIconModule),
-        MockModule(MatMenuModule),
-        MockModule(MatButtonModule),
+        MockModule(MatCardModule),
       ],
-      declarations: [HeaderComponent, MockPipe(TranslatePipe)],
-      providers: [{
-        provide: AuthFacade,
-        useClass: class {
-          username$ = of({
-            email: 'test@mail.com'
-          })
-        }
-      }]
-    }).compileComponents();
+      declarations: [ HomeComponent, MockPipe(TranslatePipe), MockComponents(ActionButtonComponent) ]
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -51,12 +43,5 @@ describe('HeaderComponent', () => {
   it('should match snapshot', () => {
     fixture.detectChanges();
     expect(fixture).toMatchSnapshot();
-  });
-
-  it('should render username and icon', () => {
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.getElementsByClassName('username').length).toEqual(1);
-    expect(compiled.querySelectorAll('mat-icon').length).toEqual(1);
   });
 });

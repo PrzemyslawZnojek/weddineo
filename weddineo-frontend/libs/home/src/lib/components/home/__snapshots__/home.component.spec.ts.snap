@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeComponent should match snapshot 1`] = `
+<weddineo-frontend-home
+  router={[Function Router]}
+>
+  <mat-card>
+    <mat-card-header>
+      <h2>
+        
+      </h2>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>
+        
+      </h3>
+      <h4>
+        
+      </h4>
+      <weddineo-frontend-action-button />
+      <h4>
+        
+      </h4>
+      <weddineo-frontend-action-button />
+    </mat-card-content>
+  </mat-card>
+</weddineo-frontend-home>
+`;

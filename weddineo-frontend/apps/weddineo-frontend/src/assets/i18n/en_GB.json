@@ -9,6 +9,12 @@
       "password": "Passwords are different"
     }
   },
+  "home": {
+    "hello": "Hello in Weddineo",
+    "text": "Let us help you in orginizing the best day in your life",
+    "login": "Log in to go further:",
+    "register": "If you do not have account:"
+  },
   "auth": {
     "login": {
       "login": "Login",
@@ -23,7 +29,8 @@
       "password": "Password",
       "passwordConfirm": "Confirm password",
       "register": "Register"
-    }
+    },
+    "logout": "Logout"
   },
   "footer": {
     "version": "version",

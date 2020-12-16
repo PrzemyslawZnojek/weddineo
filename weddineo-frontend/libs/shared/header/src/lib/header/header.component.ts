@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthFacade } from '@weddineo-frontend/auth';
 
 @Component({
@@ -6,10 +7,20 @@ import { AuthFacade } from '@weddineo-frontend/auth';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   username$ = this.authFacade.getFirebaseUser$;
 
-  constructor(private authFacade: AuthFacade) {}
+  constructor(private authFacade: AuthFacade, private router: Router) {}
 
-  ngOnInit(): void {}
+  logout() {
+    this.authFacade.logout();
+  }
+
+  login() {
+    this.router.navigateByUrl('auth');
+  }
+
+  goToHomepage(){
+    this.router.navigateByUrl('home');
+  }
 }
