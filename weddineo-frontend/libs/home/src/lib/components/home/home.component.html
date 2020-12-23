@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <h2>{{ 'home.hello' | translate | uppercase }}</h2> </mat-card-header
+  ><mat-card-content>
+    <h3>{{ 'home.text' | translate }}</h3>
+
+    <h4>{{ 'home.login' | translate }}</h4>
+
+    <weddineo-frontend-action-button
+      [width]="'150px'"
+      [label]="'auth.login.login' | translate"
+      (onClick)="login()"
+    ></weddineo-frontend-action-button>
+
+    <h4>{{ 'home.register' | translate }}</h4>
+
+    <weddineo-frontend-action-button
+      [width]="'150px'"
+      [label]="'auth.register.register' | translate"
+      (onClick)="register()"
+    ></weddineo-frontend-action-button>
+  </mat-card-content>
+</mat-card>

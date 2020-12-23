@@ -3,6 +3,7 @@
 exports[`HeaderComponent should match snapshot 1`] = `
 <weddineo-frontend-header
   authFacade={[Function useClass]}
+  router={[Function Router]}
   username$="undefined"
 >
   <mat-toolbar
@@ -12,7 +13,9 @@ exports[`HeaderComponent should match snapshot 1`] = `
     <mat-toolbar-row
       style="align-content: center; align-items: center; box-sizing: border-box; display: flex; flex-direction: row; justify-content: space-between; flex: 1 1 100%; max-width: row;"
     >
-      <div>
+      <div
+        class="logo"
+      >
         
       </div>
       <div
@@ -23,11 +26,23 @@ exports[`HeaderComponent should match snapshot 1`] = `
         >
           
         </span>
-        <span
-          class="material-icons"
+        <button
+          class="menu-button"
+          mat-button=""
         >
-           account_circle 
-        </span>
+          <mat-icon>
+             account_circle 
+          </mat-icon>
+        </button>
+        <mat-menu>
+          
+          
+          <button
+            mat-menu-item=""
+          >
+            
+          </button>
+        </mat-menu>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>

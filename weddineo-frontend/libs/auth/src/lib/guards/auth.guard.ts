@@ -26,13 +26,16 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
     return this.authFacade.getUserToken$.pipe(
       tap((authenticated) => {
-        if (!authenticated) {
-          this.authFacade.logout();
-        } else {
-          this.router.navigateByUrl('');
+        if (!state.url.includes('auth')) {
+          if (!authenticated) {
+            //this.authFacade.logout();
+            this.router.navigateByUrl('/home');
+          } else {
+            this.router.navigateByUrl('');
+          }
         }
       }),
-      map((token) => !!token)
+      map((token) => !!token || state.url.includes('auth'))
     );
   }
 }

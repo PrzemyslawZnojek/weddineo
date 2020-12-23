@@ -9,6 +9,12 @@
       "password": "Hasła nie są identyczne"
     }
   },
+  "home": {
+    "hello": "Witaj w Weddineo",
+    "text": "Pozwól sobie pomóc w organizacji najważniejszego dnia Twojego życia",
+    "login": "Zaloguj się aby przejść dalej:",
+    "register": "Jeśli nie masz jeszcze konta:"
+  },
   "auth": {
     "login": {
       "login": "Login",
@@ -23,7 +29,8 @@
       "password": "Hasło",
       "passwordConfirm": "Potwierdź hasło",
       "register": "Zarejestruj"
-    }
+    },
+    "logout": "Wyloguj"
   },
   "footer": {
     "version": "wersja",

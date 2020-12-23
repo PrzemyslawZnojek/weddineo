@@ -53,6 +53,9 @@
     },
     "shared-footer": {
       "tags": []
+    },
+    "home": {
+      "tags": []
     }
   }
 }

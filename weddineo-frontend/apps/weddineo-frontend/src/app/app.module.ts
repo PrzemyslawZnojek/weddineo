@@ -3,7 +3,6 @@ import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -14,6 +13,7 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthModule } from '@weddineo-frontend/auth';
+import { HomeModule } from '@weddineo-frontend/home';
 import { SharedFooterModule } from '@weddineo-frontend/shared/footer';
 import { SharedHeaderModule } from '@weddineo-frontend/shared/header';
 import { SharedUiKitModule } from '@weddineo-frontend/shared/ui-kit';
@@ -34,8 +34,9 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     CommonModule,
     SharedUiKitModule,
-    BrowserModule,
+    CommonModule,
     AuthModule,
+    HomeModule,
     SharedFooterModule,
     SharedHeaderModule,
     AppRoutingModule,
@@ -47,9 +48,12 @@ export function createTranslateLoader(http: HttpClient) {
         runtimeChecks: {
           strictActionImmutability: true,
           strictStateImmutability: true,
+          strictStateSerializability: true,
         },
       }
     ),
+    StoreDevtoolsModule.instrument({}),
+    StoreModule.forRoot({}),
     TranslateModule.forRoot({
       defaultLanguage: 'pl_PL',
       loader: {

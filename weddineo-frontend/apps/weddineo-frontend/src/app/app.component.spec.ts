@@ -3,7 +3,7 @@ import { VersionFacade } from '@weddineo-frontend/version';
 import { MockComponent, MockPipe } from 'ng-mocks';
 import { of } from 'rxjs';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import { FooterComponent } from '@weddineo-frontend/shared/footer';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslatePipe } from '@ngx-translate/core';

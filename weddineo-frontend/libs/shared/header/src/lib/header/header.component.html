@@ -1,11 +1,17 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row [fxFlex]="'row'" [fxLayoutAlign]="'space-between center'">
-    <div>{{ 'title' | translate }}</div>
+    <div (click)="goToHomepage()" class="logo">{{ 'title' | translate }}</div>
     <div [fxLayoutAlign]="'space-between center'">
-      <span class="username">{{ (username$  | async)?.email }}</span>
-      <span class="material-icons">
-        account_circle
-      </span>
+      <span class="username">{{ (username$ | async)?.email }}</span>
+      <button mat-button [matMenuTriggerFor]="menu" class="menu-button">
+        <mat-icon>
+          account_circle
+        </mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngIf="(username$ | async)" (click)="logout()">{{ 'auth.logout' | translate}}</button>
+        <button mat-menu-item *ngIf="!(username$ | async)" (click)="login()">{{ 'auth.login.login' | translate}}</button>
+      </mat-menu>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
